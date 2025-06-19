@@ -1,0 +1,53 @@
+package cts;
+
+public class Sample {
+	   
+	    private static Sample singleInstance;
+
+	    
+	    private Sample() {
+	        System.out.println("Logger Initialized");
+	    }
+
+	    
+	    public static Sample getInstance() {
+	        if (singleInstance == null) {
+	            singleInstance = new Sample();
+	        }
+	        return singleInstance;
+	    }
+
+	    
+	    public void log(String message) {
+	        System.out.println("Log message: " + message);
+	    }
+	}
+
+
+
+package cts;
+
+public class Main {
+	
+		    public static void main(String[] args) {
+		        
+		        Sample s1 = Sample.getInstance();
+		        s1.log("message1");
+
+		       
+		        Sample s2 = Sample.getInstance();
+		        s2.log("message2");
+
+		       
+		        if(s1 == s2) {
+		            System.out.println("True");
+		        } else {
+		            System.out.println("False");
+		        }
+		    }
+		
+
+
+	}
+
+
